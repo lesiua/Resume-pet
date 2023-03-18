@@ -1,0 +1,110 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<div>
+	{{#with web}}
+	<ul>
+
+		<li>
+			{{#with languages.[0]}}
+			<dl>
+				<dt><b>{{name}}</b> ({{version}})</dt>
+				<dd>{{description}}</dd>
+			</dl>
+			<ul>
+				{{#each elements}}
+				<li>
+					<dl>
+						<dt><b>{{name}}</b></dt>
+						<dd>{{description}}</dd>
+					</dl>
+					<details>
+						<summary>attributes</summary> <br>
+						<ul>
+							{{#each attributes}}
+							<li>
+								<dl>
+									<dt><b>{{name}}</b></dt>
+									<dd>{{description}}</dd>
+								</dl>
+							</li>
+							{{/each}}
+						</ul>
+					</details>
+				</li>
+				{{/each}}
+			</ul>
+			{{/with}}
+		</li>
+		<br>
+		<li>
+			{{#with languages.[1]}}
+			<dl>
+				<dt><b>{{name}}</b> ({{version}})</dt>
+				<dd>{{description}}</dd>
+			</dl>
+			<ul>
+				{{#each properties}}
+				<li>
+					<dl>
+						<dt><b>{{name}}</b></dt>
+						<dd>{{description}}</dd>
+					</dl>
+					<details>
+						<summary>values</summary> <br>
+						<ul>
+							{{#each values}}
+							<li>
+								<dl>
+									<dt><b>{{value}}</b></dt>
+									<dd>{{description}}</dd>
+								</dl>
+							</li>
+							{{/each}}
+						</ul>
+					</details>
+				</li>
+				{{/each}}
+			</ul>
+			{{/with}}
+		</li>
+		<br>
+		<li>
+			{{#with languages.[2]}}
+			<dl>
+				<dt><b>{{name}}</b> ({{version}})</dt>
+				<dd>{{description}}</dd>
+			</dl>
+			<ul>
+				{{#each functions}}
+				<li>
+					<dl>
+						<dt><b>{{name}}</b></dt>
+						<dd>{{description}}</dd>
+					</dl>
+					<details>
+						<summary>parameters</summary> <br>
+						<ul>
+							{{#each parameters}}
+							<li>
+								<dl>
+									<dt><b>{{name}}</b> ({{type}}) </dt>
+									<dd>{{description}}</dd>
+								</dl>
+							</li>
+							{{/each}}
+						</ul>
+					</details>
+				</li>
+				{{/each}}
+			</ul>
+			{{/with}}
+		</li>
+	</ul>
+	{{/with}}
+</div>
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
