@@ -1,0 +1,89 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<main>
+  <div>
+    <dl>
+      <dt><h1 class='text-primary'>{{name}}</h1>
+        {{history.founder}},
+        {{history.year}}</dt>
+      <br />
+      <dd>{{description}}</dd>
+    </dl>
+    <p class='display-6'>Types</p>
+    <ul>
+      {{#each types}}
+        <li class='badge text-bg-primary'>
+          {{this}}
+        </li>
+      {{/each}}
+    </ul>
+    <p class='display-6'>Syntax</p>
+
+    <ul>
+      {{#with syntax}}
+        <li>
+          variables ({{variables}})
+        </li>
+        <li>
+          functions ({{functions}})
+        </li>
+        <li>
+          conditionals ({{conditionals}})
+        </li>
+        <li>
+          loops ({{loops}})
+        </li>
+        <li>
+          classes ({{classes}})
+        </li>
+      {{/with}}
+    </ul>
+
+    <p class='display-6'>Features</p>
+    <ul>
+      {{#each features}}
+        <li>
+          {{this}}
+        </li>
+      {{/each}}
+    </ul>
+
+    <p class='display-6'>Libraries</p>
+    <ul>
+      {{#each libraries}}
+        <li class='btn btn-info'>
+          {{this}}
+        </li>
+        <br />
+        <br />
+      {{/each}}
+    </ul>
+
+    <p class='display-6'>Tools</p>
+    <ul>
+      {{#each tools}}
+        <li>
+          {{this}}
+        </li>
+      {{/each}}
+    </ul>
+
+    <p class='display-6'>Community</p>
+    <ul>
+      {{#each community}}
+        <li class='=badge'>
+          {{name}}
+          <span
+            class='badge text-bg-success'
+          >({{type}})</span>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</main>
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
