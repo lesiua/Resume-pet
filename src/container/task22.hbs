@@ -1,0 +1,110 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<main>
+  <h1 class='text-center'>{{page_header.title}}</h1>
+  <p class='text-uppercase text-center'>
+    {{page_header.description}}
+  </p>
+  <div class='card'>
+    <div class='card-body'>
+      {{#with section.about_us}}
+        <div>
+          <div class='display-6 text-end'><span
+            >{{title_list.main}}</span>
+            <h2>{{title_list.sub}}</h2>
+          </div>
+          <button class='btn btn-outline-info'>
+            {{button.text}}
+          </button>
+        </div>
+      {{/with}}
+    </div>
+  </div>
+
+  <br />
+
+  <div class='card'>
+    <div class='card-body'>
+      {{#with section.advantage}}
+        <p class='display-5'>{{title}}</p>
+        <div class='card'>
+          <div class='card-body'>
+            <p class='display-4'>{{efficiency.title}}</p>
+            <h6>{{efficiency.sub_title}}</h6>
+            <p>{{efficiency.description}}</p>
+            <button class='btn btn-outline-warning'>
+              {{efficiency.button}}
+            </button>
+          </div>
+        </div>
+
+        <br />
+
+        <div class='card'>
+          <div class='card-body'>
+            <div class='text-center'>
+              <p class='display-4'>{{innovation.title}}</p>
+              <h6>{{innovation.sub_title}}</h6>
+              <p>{{innovation.description}}</p>
+            </div>
+            <button class='btn btn-outline-warning'>
+              {{innovation.button}}
+            </button>
+          </div>
+        </div>
+
+        <br />
+
+        <div class='card'>
+          <div class='card-body'>
+            <div class='text-end'>
+              <p
+                class='display-4'
+              >{{collaboration.title}}</p>
+              <h6>{{collaboration.sub_title}}</h6>
+              <p>{{collaboration.description}}</p>
+            </div>
+            <button class='btn btn-outline-warning'>
+              {{collaboration.button}}
+            </button>
+          </div>
+        </div>
+      {{/with}}
+
+    </div>
+  </div>
+
+  <br>
+
+  <div class='card'>
+    <div class='card-body'>
+      {{#with section.agreement}}
+      <p class="display-5">{{title}}</p>
+
+      <div class='card'>
+        <div class='card-body'>
+          <h5>{{info.sub_title}}</h5>
+
+          <div class='card'>
+            <div class='card-body'>
+              <p>{{info.detail.text}}</p>
+              <button class='btn btn-success'>
+              {{info.detail.button}}
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    {{/with}}
+  </div>
+</main>
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
