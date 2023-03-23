@@ -1,0 +1,197 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<main>
+  <div>
+    {{#with navigation}}
+    {{#each links}}
+    <a class='btn btn-link' href='{{href}}'>{{text}}</a>
+    {{/each}}
+    <a class='btn btn-primary' href='{{button.href}}'>{{button.text}}</a>
+    {{/with}}
+  </div>
+
+  <br>
+  <hr />
+  <br>
+
+  {{#with header}}
+  <h1>{{title}}</h1>
+  <p>{{description}}</p>
+  <a class='btn btn-primary' href='{{button.link}}'>{{button.text}}</a>
+  {{/with}}
+
+  <br>
+  <hr />
+  <br>
+
+  {{#with city}}
+  <h2>{{title}}</h2>
+
+  <div class="row g-3">
+    {{#each cards}}
+    <div class="col-6">
+      <div class="card">
+        <img class="card-img-top" src="{{picture.src}}" alt="{{picture.alt}}">
+        <div class="card-body">
+          <h6 class="card-title">{{title}}</h6>
+          <p>{{description}}</p>
+          <a class="btn btn-primary" href="{{button.href}}">{{button.text}}</a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/with}}
+
+  <br>
+  <hr />
+  <br>
+
+  {{#with winner}}
+  <h2>{{title}}</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        {{#each table.head}}
+        <th>{{this}}</th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each table.user}}
+      <tr>
+        <th>{{place}}</th>
+        <td>{{name}}</td>
+        <td>{{surname}}</td>
+        <td>{{nickname}}</td>
+
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/with}}
+
+  <br>
+  <hr />
+  <br>
+
+
+  {{#with gallery}}
+  <h2>{{title}}</h2>
+
+  <div class="row g-3">
+    {{#each cards}}
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">{{name}}</div>
+        <ul class="list-group list-group-flush"> {{#each items}}
+          <li class="list-group-item">{{this}}</li> {{/each}}
+        </ul>
+      </div>
+    </div>
+    {{/each}}
+    {{/with}}
+  </div>
+
+  <br>
+  <hr />
+  <br>
+
+  {{#with relaxion}}
+  <p class="display-3">{{title}}</p>
+
+  <div class="row g-3">
+    {{#each cards}}
+    <div class="col-5">
+      <div class="card text-bg-secondary">
+        <div class="card-header">
+          {{header}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{title}}</h5>
+          <div>{{description}}</div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    {{/with}}
+  </div>
+
+  <br>
+  <hr />
+  <br>
+
+  <div class="row g-3">
+    {{#each rest.cards}}
+
+    <div class="col-6">
+      <div class="card text-center">
+        <div class="card-header">{{header}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{title}}</h5>
+          <p>{{description}}</p>
+          <button class="btn btn-primary">{{button}}</button>
+        </div>
+        <div class="card-footer">{{footer}}</div>
+      </div>
+    </div> {{/each}}
+  </div>
+
+  <br>
+  <hr />
+  <br>
+
+  {{#with proposition}}
+  <p class="display-2">{{title}}</p>
+  <div class="row">
+    {{#each card}}
+    <div class="col-5">
+      <div class="card text-bg-warning">
+        <div class="card-header">{{header}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{title}}</h5>
+          {{description}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    {{/with}}
+  </div>
+
+  <br>
+  <hr>
+  <br>
+
+  {{#with footer}}
+  <h5>{{title}}</h5>
+
+  <div class="row g-5">
+    <div class="col-2">
+      {{#each navigation}}
+      <a class="btn btn-link" href="{{href}}">{{text}}</a> <br> <br>
+      {{/each}}
+    </div>
+    <div class="col-2">
+      {{#each socialMedia}}
+      <a class="btn btn-outline-dark" href="{{link}}">{{name}}</a> <br> <br>
+      {{/each}}
+    </div>
+    <div class="col-2">
+      {{#each partners}}
+      <a class="btn btn-outline-info" href="{{link}}">{{name}}</a> <br> <br>
+      {{/each}}
+    </div>
+  </div>
+  {{/with}}
+</main>
+
+
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
