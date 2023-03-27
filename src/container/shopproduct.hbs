@@ -1,0 +1,134 @@
+{{!
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+	
+	<ol class="breadcrumb my-4">
+		{{#each breadcrumb}}
+		<li class="breadcrumb-item">
+			{{#if url}}
+			<a href="{{url}}">{{name}}</a>
+			{{else}} {{name}}
+			{{/if}}
+		</li> {{/each}}
+	</ol>
+
+	<div class="row">
+		<div class="col-6">
+			{{#with productData}}
+			<img class="card-img-top mb-3" src="{{img}}">
+
+			<div class="card">
+
+				{{#with info}}
+				<div class="card-body">
+					<h5 class="card-title">{{title}}</h5>
+					<p>{{about}}</p>
+					<h3>{{price}}</h3>
+
+					{{#each category}}
+					{{#if isHot}}
+					<div class="badge rounded-pill bg-warning">{{name}}</div>
+					{{/if}}
+					{{#if isNew}}
+					<div class="badge rounded-pill bg-primary">{{name}}</div>
+					{{/if}}
+					{{#if isBonus}}
+					<div class="badge rounded-pill bg-info">{{name}}</div>
+					{{/if}}
+					{{/each}}
+
+				</div>
+				{{/with}}
+			</div>
+
+		</div>
+
+		<div class="col-1"></div>
+
+		<div class="col-5">
+			<table class="table">
+				<thead>
+					<tr>
+						{{#each item.head}}
+						<th>{{this}}</th>
+						{{/each}}
+					</tr>
+				</thead>
+				<tbody>
+					{{#each item.body}}
+					<tr>
+						{{#each this}}
+						<td> {{this}}</td>
+						{{/each}}
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+
+
+			<div class="card mt-4">
+				<div class="card-header">
+					{{param.title}}
+				</div>
+				<ul class="list-group list-group-flush">
+					{{#each param.list}}
+					<li class="list-group-item">{{this}}</li>
+					{{/each}}
+				</ul>
+			</div>
+
+			{{#if alert.isError}}
+			<div class="alert alert-danger mt-4" role="alert">
+				{{alert.text}}
+			</div>
+			{{/if}}
+		</div>
+
+		<div class="card col-12 mt-4">
+			<div class="card-body">
+				{{#each actionList}}
+				<button class="btn 
+        {{#if isWarning}}
+        btn-warning{{/if}}
+        {{#if isError}}
+        btn-outline-danger{{/if}}
+        {{#if isSuccess}}
+        btn-success{{/if}}
+        {{#if isGood}}
+        btn-outline-success{{/if}}
+        me-3">
+					{{name}}
+				</button>
+				{{/each}}
+			</div>
+
+		</div>
+		{{/with}} {{! productData }}
+
+	</div>
+
+	<hr class="my-5">
+
+	{{#with goodsOtherBlock}}
+	<h1 class="text-center mb-4">{{title}}</h1>
+
+	<div class="row g-3">
+		{{#each cards}}
+		<div class="col-4">
+			
+		{{> shopcard}}
+
+		</div>
+		{{/each}}
+	</div>
+	{{/with}} {{! goodsOtherBlock }}
+
+
+	{{> shopaction}}
+
+	
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
