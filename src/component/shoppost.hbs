@@ -1,0 +1,13 @@
+<div class='card text-bg-secondary'>
+  <div class='card-header'>{{title}}
+    {{#if isTop}}
+      <div class='badge rounded-pill bg-danger'>Top</div>
+    {{/if}}
+    {{#if isNew}}
+      <div class='badge rounded-pill bg-success'>New</div>
+    {{/if}}
+  </div>
+  <div class='card-body'>
+    <p class='mb-0'>{{description}}</p>
+  </div>
+</div>
