@@ -2,8 +2,8 @@
 Це код container файлу для summary сторінки,
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 }}
-<main>
-  <div class="card">
+
+  {{!-- <div class="card">
     <div class="card-body row">
       {{#with navigation}}
       <h2 class="col-3">{{Logo}}</h2>
@@ -18,7 +18,7 @@
 
     </div>
     {{/with}}
-  </div>
+  </div> --}}
 
   {{#with newsBlock}}
   <h2 class="text-center mt-5 mb-3">{{title}}</h2>
@@ -110,43 +110,7 @@
 
   <hr class="my-5">
 
-  <div class="card text-center text-bg-success">
-    <div class="card-body">
-      {{#with service}}
-
-      <h2>{{title}}</h2>
-      <p>{{description}}</p>
-      {{#each buttons}}
-      <a class='btn btn-primary' href='{{link}}'>{{text}}</a>
-      {{/each}}
-
-    </div>
-    {{/with}}
-  </div>
-
-  <hr class="my-5">
-
-  <div class="row">
-    {{#each footer}}
-    <ul class="nav flex-column col-2">
-      {{#each this}}
-      <li class="nav-item">
-        {{#if @last}}
-        <a class='btn btn-link disabled' href='{{link}}'>{{text}}</a>
-        {{else}}
-        <a class='btn btn-link' href='{{link}}'>{{text}}</a>
-        {{/if}}
-      </li>
-      {{/each}}
-    </ul>
-    {{/each}}
-  </div>
-
-</main>
-
-
-
-
+{{> shopaction}}
 
 {{!--
 Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs

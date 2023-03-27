@@ -1,0 +1,16 @@
+  <div class="card">
+    <div class="card-body row">
+      {{#with navigation}}
+      <h2 class="col-3">{{Logo}}</h2>
+
+      <ul class="nav col-9 justify-content-end">
+        {{#each links}}
+        <li class="nav-item">
+          <a class='btn btn-link' href='{{href}}'>{{text}}</a>
+        </li>
+        {{/each}}
+      </ul>
+
+    </div>
+    {{/with}}
+  </div>
