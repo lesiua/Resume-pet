@@ -1,0 +1,75 @@
+{{#with header}}
+	<div class='row my-5'>
+		<div class='col-9'>
+			<h1 class='mt-3'>{{title}}</h1>
+		</div>
+		<div class='col-3 justify-content-end'>
+			<a class='btn btn-outline-secondary mt-4' href='{{button.link}}'>{{button.text}}</a>
+		</div>
+	</div>
+{{/with}}
+
+<hr class="my-4">
+
+{{#each goodsBlock}}
+
+	{{> cartGoodsItem}}
+	
+{{/each}}
+
+<hr class="my-4">
+
+<div class="row">
+	{{#with total}}
+		<div class="col-8">
+			<h2>{{title}}</h2>
+			<p class="display-4"><b>{{amount}}</b></p>
+			<h5 class="mb-0">{{delivery}}</h5>
+		</div>
+		<div class="col-4">
+			{{#each buttons}}
+				<a class="btn
+					{{#if isSuccess}}btn-success{{/if}}
+					{{#if isOutline}}btn-outline-success{{/if}} mt-3" href="{{link}}">{{text}}
+				</a>
+			{{/each}}
+		</div>
+	{{/with}}
+</div>
+
+<hr class="my-4">
+
+{{#with goodsOtherBlock}}
+	<h1 class="text-center mb-4">{{title}}</h1>
+
+	<div class="row g-3">
+		{{#each cards}}
+			<div class="col-4">
+				
+				{{> shopcard}}
+
+			</div>
+		{{/each}}
+	</div>
+{{/with}} {{! /goodsOtherBlock }}
+
+<hr class="my-4">
+
+  	<div class="card text-bg-dark">
+		<div class="card-body row">
+			{{#with subscribe}}
+				<div class="col-6">
+					<h2>{{header}}</h2>
+					<p class="mb-0">{{description}}</p>
+				</div>
+
+				<ul class="nav col-6 justify-content-end">
+					{{#each buttons}}
+					<li class="nav-item mt-3 px-1">
+					<a class='btn btn-primary' href='{{link}}'>{{text}}</a>
+					</li>
+					{{/each}}
+				</ul>
+			{{/with}}
+		</div>
+	</div>

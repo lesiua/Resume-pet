@@ -1,0 +1,42 @@
+<div class='card my-3'>
+	<div class='row g-0'>
+		<div class='col-2'>
+			<div class="card-body">
+				<img src='{{image}}' class='card-img' />
+			</div>
+		</div>
+		<div class='col-4'>
+			<div class='card-body'>
+				<h5 class="card-title">{{name}}</h5>
+				<p class="card-text">{{description}}</p>
+			</div>
+		</div>
+		<div class='col-2'>
+			<div class='card-body pt-4'>
+				<p class="card-text">{{price.title}}</h5>
+				<h4 class="card-title">{{price.value}}</h4>
+			</div>
+		</div>
+		<div class='col-2'>
+			<div class='card-body pt-5'>
+				<h4 class="card-title text-center">{{amount}}</h4>
+			</div>
+		</div>
+		<div class='col-2'>
+			<div class='card-body pt-3'>
+				{{#each buttons}}
+					<button class="btn 
+						{{#if isPrimary}} 
+							btn-primary 
+						{{/if}}
+						{{#if isDanger}}
+							btn-danger
+						{{/if}}
+						mt-3">
+						{{text}}
+					</button>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>
