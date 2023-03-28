@@ -100,24 +100,24 @@
 			</div>
 
 		</div>
-		{{/with}} {{! productData }}
+	{{/with}} {{! productData }}
 
 	</div>
 
 	<hr class="my-5">
 
 	{{#with goodsOtherBlock}}
-	<h1 class="text-center mb-4">{{title}}</h1>
+		<h1 class="text-center mb-4">{{title}}</h1>
 
-	<div class="row g-3">
-		{{#each cards}}
-			<div class="col-4">
-				
-				{{> shopcard}}
+		<div class="row g-3">
+			{{#each cards}}
+				<div class="col-4">
+					
+					{{> shopcard}}
 
-			</div>
-		{{/each}}
-	</div>
+				</div>
+			{{/each}}
+		</div>
 	{{/with}} {{! goodsOtherBlock }}
 
 
