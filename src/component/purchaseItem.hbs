@@ -1,0 +1,26 @@
+		<div class="row g-3">
+			<div class="col-4">
+				{{number}}
+				<h5>{{status}}</h5>
+			</div>
+			<div class="col-2">
+				{{amount.title}}
+				<h5>{{amount.value}}</h5>
+			</div>
+			<div class="col-4">
+				{{#each images}}
+				<img src='{{this}}' class='' />
+				{{/each}}
+			</div>
+			<div class="col-2">
+				{{#with button}}
+					<a class="btn 
+						{{#if isPrimary}} 
+							btn-primary 
+						{{/if}} 
+						mt-4" href="{{link}}">{{text}}
+					</a>
+				{{/with}}
+			</div>
+			<hr class="">
+		</div>
