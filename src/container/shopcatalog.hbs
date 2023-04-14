@@ -1,0 +1,80 @@
+{{>breadcrumb}}
+
+<h1>{{header}}</h1>
+<div class="row mt-5">
+	{{#each sortBlock}}
+	<div class="col-3">
+		<select class="form-select">
+			<option selected>{{placeholder}}</option>
+			{{#each options}}
+			<option value="{{value}}">{{text}}</option>
+			{{/each}}
+		</select>
+	</div>
+	{{/each}}
+</div>
+<div class="row g-4 mt-5">
+	{{#with filterBlock}}
+		<div class="card col-4">
+			<div class="card-body">
+				<label class="form-label mb-3">{{sellers.title}}</label>
+				{{#each sellers.list}}
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="">
+					<label class="form-check-label" for="">
+						{{value}}
+					</label>
+				</div>
+				{{/each}}
+
+				<hr>
+
+				<label class="form-label mb-3">{{brands.title}}</label>
+				<input class="form-control mb-3" type="text" placeholder="{{brands.input.placeholder}}">
+				{{#each brands.options}}
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="">
+						<label class="form-check-label" for="">
+							{{value}}
+						</label>
+					</div>
+				{{/each}}
+
+				<hr>
+
+				<label class="form-label mb-3">{{price.title}}</label>
+				<input class="form-control mb-3" type="text" placeholder="{{price.range.from}}"</input>
+				<input class="form-control mb-3" type="text" placeholder="{{price.range.to}}"</input>
+				<a class="btn btn-secondary" href="{{price.button.link}}">{{price.button.text}}</a>
+
+				{{#each filterList}}
+					<hr>
+					<label class="form-label mb-3">{{title}}</label>
+					{{#each options}}
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="">
+							<label class="form-check-label" for="">
+								{{value}}
+							</label>
+						</div>
+					{{/each}}
+					{{!-- <hr> --}}
+				{{/each}}
+			</div>
+		</div>
+	{{/with}} {{!-- /filterBlock --}}
+	
+	<div class="col-8">
+		<div class="row g-3">
+		{{#each goodsList}}
+			<div class="col-6">
+			
+			{{>catalogItem}}
+
+			</div>
+		{{/each}} {{!-- /goodsList --}}
+		</div>
+	</div>
+</div>
+
+{{>shopaction}}
